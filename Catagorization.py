@@ -55,6 +55,6 @@ def intro():
             print ("sorry only numbers")
             continue
         break
-    dictonary ['number_catagory'] = int(numb_catagories)
+    dictonary['number_catagory'] = int(numb_catagories)
     return function(percentage,percentages)
 

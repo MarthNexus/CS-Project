@@ -4,6 +4,7 @@ class cat_selection():
     def __init__(self,dictionary):
         self.dict = dictionary
         self.catagory = dictionary
+        print(self.catagory)
         del self.catagory['number_catagory']
         self.fin = list(self.catagory.keys())
         self.table = {}
