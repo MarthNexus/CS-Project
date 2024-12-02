@@ -15,16 +15,21 @@ class cat_selection():
 
     def get_Catagory(self):
         flag = False
-
-        try:
-            print(self.fin)
-            cat = int(input("Choose a catagory   : "))
-        except TypeError:
-            print("Only numbers!")
-            return get_Catagory()
+        while flag != True:
+            try:
+                print(self.fin)
+                cat = int(input("Choose a catagory   : "))
+            except ValueError:
+                print("Only numbers!")
+                continue
         
-
-        self.usedcat = self.fin[cat - 1]
+            try:
+                self.usedcat = self.fin[cat - 1]
+            except IndexError:
+                print("Out of Range!!")
+                continue
+            flag = True
+        flag = False
         
         while flag != True:
             try:
@@ -32,6 +37,7 @@ class cat_selection():
             except TypeError:
                 print("Only Numbers!!")
                 continue
+
 
             self.table ['Grades'][self.usedcat].append(int(grade))
             
@@ -47,18 +53,18 @@ class cat_selection():
         gpa_weighted = []
 
         for gweid in range(len(self.fin)):
-            grade.append(self.table ['Grades'][self.fin[gweid]])
-            weight.append(self.table ['Averages'][self.fin[gweid]])
+            grade.append(self.table ['Averages'][self.fin[gweid]])
+            weight.append(self.dict [self.fin[gweid]]/100)
 
         for count in range(len(grade)):
-            gpa_weighted.append(int(grade[count])*int(weight[count]))
-
-        per = int(sum(gpa_weighted))/100
-        gpa = round(4.00 * per,2)
+            gpa_weighted.append((grade[count])*(weight[count]))
+            
+        per = int(sum(gpa_weighted))
+        gpa = round(4.00 * (per/100),2)
         return gpa
 
         
     def get_Average(self):
         #average for single
-        average = sum(self.table['Grades'][self.usedcat])/len(self.table['Grades'][self.usedcat])
+        average = int(sum(self.table['Grades'][self.usedcat])/len(self.table['Grades'][self.usedcat]))
         self.table['Averages'][self.usedcat] = average
