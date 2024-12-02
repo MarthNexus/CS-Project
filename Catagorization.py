@@ -1,4 +1,4 @@
-dictonary = {'number_catagory': 2}
+dictonary = {}
 percentage = 0
 percentages= []
 catagories = []

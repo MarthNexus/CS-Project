@@ -7,4 +7,4 @@ print("We will calculate the GPA!")
 time.sleep(1)
 intro()
 
-
+print(dictonary)
